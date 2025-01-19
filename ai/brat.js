@@ -13,18 +13,23 @@ module.exports = (app) => {
             ctx.fillStyle = "#ffffff";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Teks hitam dengan ukuran font yang disesuaikan
+            // Teks hitam dengan ukuran font yang lebih kecil
             ctx.fillStyle = "#000000";
             ctx.font = "bold 30px Arial"; // Ukuran font disesuaikan
             ctx.textAlign = "center"; // Teks rata tengah
             ctx.textBaseline = "middle"; // Teks di tengah secara vertikal
-            ctx.fillText(text, canvas.width / 2, canvas.height / 2); // Teks di tengah canvas
+
+            // Log untuk mengecek teks
+            console.log("Text to render:", text);
+
+            // Teks di tengah canvas
+            ctx.fillText(text, canvas.width / 2, canvas.height / 2);
 
             // Convert ke gambar
             res.setHeader("Content-Type", "image/png");
             res.end(canvas.toBuffer("image/png"));
         } catch (error) {
-            console.error(error);
+            console.error("Error:", error);
             res.status(500).json({ error: "Terjadi kesalahan saat membuat gambar." });
         }
     });
