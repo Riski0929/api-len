@@ -13,10 +13,12 @@ module.exports = (app) => {
             ctx.fillStyle = "#ffffff";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Teks hitam besar kaya di gambar
+            // Teks hitam dengan ukuran font yang lebih kecil
             ctx.fillStyle = "#000000";
-            ctx.font = "bold 100px Arial"; // Ukuran tetap gede
-            ctx.fillText(text, 50, 250);  // Penyesuaian posisi teks
+            ctx.font = "bold 40px Arial"; // Ukuran font disesuaikan
+            ctx.textAlign = "center"; // Teks rata tengah
+            ctx.textBaseline = "middle"; // Teks di tengah secara vertikal
+            ctx.fillText(text, canvas.width / 2, canvas.height / 2); // Teks di tengah canvas
 
             // Convert ke gambar
             res.setHeader("Content-Type", "image/png");
