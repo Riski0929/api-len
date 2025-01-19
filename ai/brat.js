@@ -13,9 +13,9 @@ module.exports = (app) => {
             ctx.fillStyle = "#ffffff";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            // Teks hitam dengan ukuran font yang lebih kecil
+            // Teks hitam dengan ukuran font yang disesuaikan
             ctx.fillStyle = "#000000";
-            ctx.font = "bold 40px Arial"; // Ukuran font disesuaikan
+            ctx.font = "bold 30px Arial"; // Ukuran font disesuaikan
             ctx.textAlign = "center"; // Teks rata tengah
             ctx.textBaseline = "middle"; // Teks di tengah secara vertikal
             ctx.fillText(text, canvas.width / 2, canvas.height / 2); // Teks di tengah canvas
